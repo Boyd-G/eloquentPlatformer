@@ -81,3 +81,47 @@ class Lava {
     }
   }
 }
+
+Lava.prototype.size = new Vec(1, 1);
+
+class Coin {
+    constructor(pos, basePos, wobble) {
+        this.pos = pos;
+        this.basePos = basePos;
+        this.wobble = wobble;
+    }
+    
+    get type() { return 'coin'; }
+    
+    static create(pos) {
+        let basePos = pos.plus(new Vec(0.2, 01));
+        return new Coin(basePos, basePos,
+            Math.random() * Math.PI * 2);
+    }
+}
+
+Coin.prototype.size = new Vec(0.6, 0.6);
+
+const levelChars = {
+    '.': 'empty', '#': 'wall', '+': 'lava',
+    '@': Player 'o': Coin,
+    '=': Lava, '|': Lava, 'v': Lava
+};
+
+//creating a level instance
+let simpleLevel = new Level(simpleLevelPlan);
+console.log(`${simpleLevel.width} by ${wimpleLevel.height}`);
+//-> 22 by 9
+
+function elt(name, attrs, ...children) {
+    let dom = document.createElement(name);
+    for (let attr of Object.keys(attrs)) {
+        dom.setAttribute(attr, attrs[attr]);
+    }
+    
+    for (let child of children) {
+        dom.appendChild(this.dom);
+    }
+
+    clear() { this.dom.remove(); }
+};
